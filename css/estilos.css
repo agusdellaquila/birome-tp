@@ -1,18 +1,13 @@
 /* =========================================
    Birome · hoja de estilos
-   Orden: fuente, base, contenedor, cabecera,
-   inicio, nosotros, servicios, trabajos,
-   contacto, pie, botón subir
+   Orden: fuentes, colores, base, contenedor, cabecera,
+   inicio, nosotros, servicios, web, contenido,
+   contacto, pie, botón subir, hover, movimiento
 
-   Colores
-   texto   #1C1B22   títulos y texto principal
-   suave   #64626C   texto secundario
-   línea   #DEDAD0   separadores
-   papel   #F6F4EE   fondo
-   tinta   #2234B8   solo marca, links, botones e íconos
+   Títulos en Ginka, texto en Inter.
    ========================================= */
 
-/* ---------- Fuente ---------- */
+/* ---------- Fuentes ---------- */
 
 @font-face {
 	font-family: "Ginka";
@@ -23,16 +18,29 @@
 
 @font-face {
 	font-family: "Ginka";
-	src: url("../fuentes/ginka-italic.woff2") format("woff2");
-	font-weight: 400;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: "Ginka";
 	src: url("../fuentes/ginka-book.woff2") format("woff2");
 	font-weight: 500;
 	font-style: normal;
+}
+
+@font-face {
+	font-family: "Inter";
+	src: url("../fuentes/inter.woff2") format("woff2");
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+/* ---------- Colores ---------- */
+
+:root {
+	--azul: #1429B3;      /* títulos, marca y botones */
+	--tinta: #1C2150;     /* texto */
+	--suave: #5A5F86;     /* texto secundario */
+	--rojo: #F72E14;
+	--verde: #D7EE44;
+	--celeste: #C2DAFF;
+	--crema: #FBF1E8;
+	--linea: rgba(20, 41, 179, 0.24);
 }
 
 /* ---------- Base ---------- */
@@ -46,25 +54,42 @@
 html {
 	scroll-behavior: smooth;
 	scrollbar-gutter: stable;
-	scrollbar-color: #C9C5BA #F6F4EE;
+	scrollbar-color: var(--celeste) var(--crema);
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--crema);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--celeste);
+	border: 4px solid var(--crema);
+	border-radius: 8px;
 }
 
 body {
-	background-color: #F6F4EE;
-	color: #1C1B22;
-	font-family: "Ginka", Helvetica, Arial, sans-serif;
+	background-color: var(--crema);
+	color: var(--tinta);
+	font-family: "Inter", Arial, sans-serif;
 	font-size: 16px;
 	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
-	background-color: #2234B8;
-	color: #F6F4EE;
+	background-color: var(--verde);
+	color: var(--azul);
 }
 
 :focus-visible {
-	outline: 2px solid #2234B8;
+	outline: 2px solid var(--azul);
 	outline-offset: 4px;
+	border-radius: 4px;
 }
 
 img {
@@ -72,24 +97,27 @@ img {
 }
 
 a {
-	color: #2234B8;
+	color: var(--azul);
 	text-decoration-thickness: 1px;
 	text-underline-offset: 4px;
 }
 
-h2 {
-	font-size: 48px;
-	font-weight: 500;
+ul {
+	list-style: none;
+}
+
+h2,
+h3 {
+	font-family: "Ginka", Georgia, serif;
+	font-weight: 400;
 	line-height: 1.1;
-	letter-spacing: -0.02em;
-	margin-bottom: 48px;
+	color: var(--azul);
 	text-wrap: balance;
 }
 
-h3 {
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 1.4;
+h2 {
+	font-size: 56px;
+	letter-spacing: -0.02em;
 }
 
 p {
@@ -97,25 +125,53 @@ p {
 }
 
 strong {
-	font-weight: 500;
-	color: #1C1B22;
+	font-weight: 600;
+	color: var(--azul);
 }
 
 main section {
-	padding: 96px 0;
-	border-top: 1px solid #DEDAD0;
-	scroll-margin-top: 80px;
+	padding: 96px 48px;
+	scroll-margin-top: 88px;
+}
+
+.encabezado {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-bottom: 56px;
+}
+
+.encabezado p {
+	width: 432px;
+	font-size: 20px;
+	color: var(--suave);
 }
 
 .boton {
 	display: inline-block;
-	padding: 16px 28px;
-	background-color: #2234B8;
-	color: #F6F4EE;
+	padding: 20px 36px;
+	background-color: var(--verde);
+	color: var(--azul);
 	border-radius: 999px;
-	font-weight: 500;
+	font-family: "Ginka", Georgia, serif;
+	font-size: 24px;
 	line-height: 1;
 	text-decoration: none;
+	user-select: none;
+	transition-property: background-color, color, scale;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
+}
+
+.boton:active {
+	scale: 0.96;
+}
+
+.enlace {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-weight: 500;
 	user-select: none;
 }
 
@@ -124,7 +180,6 @@ main section {
 .contenedor {
 	width: 1200px;
 	margin: 0 auto;
-	padding: 0 48px;
 }
 
 /* ---------- Cabecera ---------- */
@@ -136,66 +191,154 @@ main section {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 80px;
-	background-color: #F6F4EE;
+	height: 88px;
+	padding: 0 48px;
+	background-color: var(--crema);
 }
 
 .logo a {
 	display: block;
-	width: 124px;
-	height: 28px;
-	background: url("../img/logo.png") no-repeat;
+	width: 148px;
+	height: 40px;
+	background: url("../img/logo.svg") no-repeat;
 	text-indent: -9999px;
 	overflow: hidden;
 }
 
 .menu {
 	display: flex;
-	gap: 32px;
-	list-style: none;
+	align-items: center;
+	gap: 4px;
 }
 
 .menu a {
-	color: #64626C;
+	display: block;
+	padding: 12px 20px;
+	border-radius: 999px;
+	color: var(--azul);
+	font-weight: 500;
+	line-height: 1;
 	text-decoration: none;
 	user-select: none;
+	transition-property: background-color, color;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
+}
+
+.menu .menu-contacto {
+	margin-left: 12px;
+	background-color: var(--azul);
+	color: var(--crema);
 }
 
 /* ---------- Inicio ---------- */
 
 .inicio {
-	border-top: none;
-	padding: 80px 0 96px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 48px;
+}
+
+.inicio-texto {
+	width: 624px;
 }
 
 .inicio h2 {
-	font-size: 88px;
-	font-weight: 400;
-	line-height: 1;
+	font-size: 80px;
+	line-height: 1.04;
 	letter-spacing: -0.03em;
-	margin-bottom: 64px;
+	margin-bottom: 32px;
 }
 
-/* La única parte del sitio con título en dos colores */
+/* Única palabra en otro color de todo el sitio */
 .inicio h2 em {
-	font-style: italic;
-	font-weight: 400;
-	color: #2234B8;
+	font-style: normal;
+	color: var(--rojo);
 }
 
-.inicio-pie {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
-}
-
-.inicio-pie p {
-	width: 528px;
+.inicio p {
+	width: 520px;
 	font-size: 20px;
-	color: #64626C;
+	color: var(--suave);
+	margin-bottom: 40px;
+	text-wrap: balance;
+}
+
+.lema {
+	position: relative;
+	width: 432px;
+	height: 480px;
+}
+
+.lema li {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 240px;
+	height: 240px;
+	border-radius: 50%;
+	font-family: "Ginka", Georgia, serif;
+	font-size: 32px;
+	color: var(--azul);
+}
+
+.lema li:nth-child(1) {
+	top: 0;
+	left: 0;
+	background-color: var(--verde);
+}
+
+.lema li:nth-child(2) {
+	top: 88px;
+	left: 192px;
+	background-color: var(--azul);
+	color: var(--crema);
+}
+
+.lema li:nth-child(3) {
+	top: 240px;
+	left: 48px;
+	background-color: var(--celeste);
+}
+
+/* La bolita de la birome, como en el logo */
+.lema::after {
+	content: "";
+	position: absolute;
+	top: 392px;
+	left: 264px;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background-color: var(--rojo);
 }
 
 /* ---------- Nosotros ---------- */
+
+.presentacion {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 64px;
+	margin-bottom: 64px;
+	background-color: var(--azul);
+	border-radius: 32px;
+}
+
+.presentacion h2 {
+	width: 384px;
+	font-size: 64px;
+	color: var(--crema);
+}
+
+.presentacion p {
+	width: 528px;
+	font-size: 24px;
+	line-height: 1.5;
+	color: var(--crema);
+}
 
 .personas {
 	display: flex;
@@ -204,56 +347,64 @@ main section {
 
 .persona {
 	width: 528px;
+	padding-top: 32px;
+	border-top: 1px solid var(--azul);
 }
 
 .persona h3 {
-	font-size: 32px;
-	font-weight: 500;
-	line-height: 1.2;
+	font-size: 40px;
 }
 
 .persona .rol {
-	color: #2234B8;
-	margin-bottom: 16px;
+	margin: 8px 0 20px;
+	font-weight: 500;
+	color: var(--suave);
 }
 
 .persona p {
 	font-size: 20px;
-	color: #64626C;
 	margin-bottom: 24px;
-}
-
-.enlace {
-	display: inline-flex;
-	align-items: center;
-	gap: 4px;
-	font-weight: 500;
 }
 
 /* ---------- Servicios ---------- */
 
 .servicios-lista {
+	border-bottom: 1px solid var(--azul);
+}
+
+.servicio {
 	display: flex;
-	gap: 32px;
+	align-items: center;
+	gap: 24px;
+	padding: 36px 0;
+	border-top: 1px solid var(--azul);
 }
 
-.servicios-lista article {
-	width: 252px;
+/* Cada servicio lleva un punto de la paleta, como la bolita del logo */
+.servicio::before {
+	content: "";
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
 }
 
-.servicios-lista img {
-	margin-bottom: 20px;
+.servicio-verde::before { background-color: var(--verde); }
+.servicio-rojo::before { background-color: var(--rojo); }
+.servicio-azul::before { background-color: var(--azul); }
+.servicio-celeste::before { background-color: var(--celeste); }
+
+.servicio h3 {
+	flex-grow: 1;
+	font-size: 48px;
 }
 
-.servicios-lista h3 {
-	margin-bottom: 8px;
+.servicio ul {
+	width: 312px;
+	line-height: 2;
 }
 
-.servicios-lista p {
-	color: #64626C;
-}
-
-/* ---------- Trabajos ---------- */
+/* ---------- Web ---------- */
 
 .galeria {
 	display: flex;
@@ -262,25 +413,83 @@ main section {
 }
 
 .galeria figure {
-	width: 540px;
+	width: 352px;
 }
 
-.galeria img {
+.trabajo > img {
 	width: 100%;
 	aspect-ratio: 4 / 3;
 	object-fit: cover;
-	border-radius: 8px;
-	margin-bottom: 20px;
+	border-radius: 16px;
+	outline: 1px solid rgba(0, 0, 0, 0.1);
+	outline-offset: -1px;
 }
 
 .galeria h3 {
-	font-size: 24px;
+	margin-top: 24px;
+	font-size: 32px;
+}
+
+.galeria .tipo {
+	margin: 4px 0 12px;
 	font-weight: 500;
-	margin-bottom: 4px;
+	color: var(--suave);
 }
 
 .galeria p {
-	color: #64626C;
+	margin-bottom: 16px;
+}
+
+/* ---------- Contenido ---------- */
+
+.pieza > img {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: 50%;
+	outline: 1px solid rgba(0, 0, 0, 0.1);
+	outline-offset: -1px;
+}
+
+.destacado {
+	margin-top: 96px;
+	padding-top: 48px;
+	border-top: 1px solid var(--azul);
+}
+
+.destacado-texto {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 40px;
+}
+
+.destacado h3 {
+	font-size: 48px;
+}
+
+.destacado-texto div,
+.destacado-texto p {
+	width: 528px;
+}
+
+.destacado-texto p {
+	font-size: 20px;
+	margin-bottom: 16px;
+}
+
+.tira {
+	display: flex;
+	gap: 32px;
+}
+
+.tira img {
+	width: 252px;
+	aspect-ratio: 3 / 4;
+	object-fit: cover;
+	border-radius: 16px;
+	outline: 1px solid rgba(0, 0, 0, 0.1);
+	outline-offset: -1px;
 }
 
 /* ---------- Contacto ---------- */
@@ -288,10 +497,14 @@ main section {
 .contacto {
 	display: flex;
 	justify-content: space-between;
+	margin: 0 48px 96px;
+	padding: 64px;
+	background-color: var(--celeste);
+	border-radius: 32px;
 }
 
 .contacto-texto {
-	width: 528px;
+	width: 432px;
 }
 
 .contacto h2 {
@@ -300,85 +513,85 @@ main section {
 
 .contacto-texto p {
 	font-size: 20px;
-	color: #64626C;
 	margin-bottom: 32px;
 }
 
 .contacto address {
 	font-style: normal;
-}
-
-.contacto address a {
-	display: inline-flex;
-	align-items: center;
-	gap: 12px;
-	font-size: 28px;
-	font-weight: 500;
-	text-decoration: none;
+	line-height: 2;
 }
 
 .formulario {
-	width: 504px;
+	width: 480px;
 }
 
 .formulario label {
 	display: block;
+	margin-bottom: 8px;
 	font-weight: 500;
+	color: var(--azul);
 }
 
-/* Los campos son renglones, como en una hoja */
 .formulario input,
 .formulario textarea {
 	display: block;
 	width: 100%;
-	margin-bottom: 32px;
-	padding: 8px 0;
-	background-color: transparent;
+	margin-bottom: 24px;
+	padding: 16px;
+	background-color: var(--crema);
 	border: none;
-	border-bottom: 1px solid #C9C5BA;
-	color: #1C1B22;
+	border-radius: 12px;
+	color: var(--tinta);
 	font-family: inherit;
-	font-size: 20px;
-	line-height: 1.6;
-}
-
-.formulario input:focus,
-.formulario textarea:focus {
-	border-bottom-color: #2234B8;
+	font-size: 16px;
+	line-height: 1.5;
 }
 
 .formulario textarea {
 	resize: none;
 }
 
+.formulario input:focus-visible,
+.formulario textarea:focus-visible {
+	outline-offset: 2px;
+	border-radius: 12px;
+}
+
 /* Autocompletado del navegador con los colores del sitio */
 .formulario input:-webkit-autofill {
-	-webkit-text-fill-color: #1C1B22;
-	-webkit-box-shadow: 0 0 0 40px #F6F4EE inset;
+	-webkit-text-fill-color: #1C2150;
+	-webkit-box-shadow: 0 0 0 40px #FBF1E8 inset;
 }
 
 .formulario button {
-	padding: 16px 28px;
-	background-color: #2234B8;
+	padding: 20px 36px;
+	background-color: var(--azul);
 	border: none;
 	border-radius: 999px;
-	color: #F6F4EE;
-	font-family: inherit;
-	font-size: 16px;
-	font-weight: 500;
+	color: var(--crema);
+	font-family: "Ginka", Georgia, serif;
+	font-size: 24px;
 	line-height: 1;
 	cursor: pointer;
 	user-select: none;
+	transition-property: background-color, scale;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
+}
+
+.formulario button:active {
+	scale: 0.96;
 }
 
 /* ---------- Pie ---------- */
 
 .pie {
 	display: flex;
-	gap: 32px;
+	justify-content: space-between;
+	margin: 0 48px;
 	padding: 32px 0 48px;
-	border-top: 1px solid #DEDAD0;
-	color: #64626C;
+	border-top: 1px solid var(--linea);
+	color: var(--suave);
 }
 
 /* ---------- Botón subir ---------- */
@@ -387,32 +600,74 @@ main section {
 	position: fixed;
 	right: 32px;
 	bottom: 32px;
-	padding: 12px 20px;
-	background-color: #1C1B22;
-	color: #F6F4EE;
+	padding: 16px 24px;
+	background-color: var(--verde);
+	color: var(--azul);
 	border-radius: 999px;
+	font-weight: 600;
 	line-height: 1;
 	text-decoration: none;
 	user-select: none;
+	transition-property: background-color, color, scale;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
+}
+
+.subir:active {
+	scale: 0.96;
 }
 
 /* ---------- Hover (solo con mouse) ---------- */
 
 @media (hover: hover) {
 	.menu a:hover {
-		color: #1C1B22;
+		background-color: var(--verde);
 	}
 
-	.boton:hover,
+	.menu .menu-contacto:hover {
+		background-color: var(--rojo);
+		color: var(--crema);
+	}
+
+	.boton:hover {
+		background-color: var(--azul);
+		color: var(--crema);
+	}
+
 	.formulario button:hover {
-		background-color: #1C1B22;
+		background-color: var(--rojo);
 	}
 
 	.subir:hover {
-		background-color: #2234B8;
+		background-color: var(--azul);
+		color: var(--crema);
 	}
+}
 
-	.contacto address a:hover {
-		text-decoration: underline;
+/* ---------- Movimiento: entrada del inicio, una sola vez ---------- */
+
+@keyframes entrar {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+		filter: blur(4px);
 	}
+}
+
+@keyframes aparecer {
+	from {
+		opacity: 0;
+		scale: 0.8;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.inicio h2 { animation: entrar 600ms cubic-bezier(0.2, 0, 0, 1) both; }
+	.inicio p { animation: entrar 600ms 100ms cubic-bezier(0.2, 0, 0, 1) both; }
+	.inicio .boton { animation: entrar 600ms 200ms cubic-bezier(0.2, 0, 0, 1) both; }
+	.lema li { animation: aparecer 600ms cubic-bezier(0.2, 0, 0, 1) both; }
+	.lema li:nth-child(1) { animation-delay: 200ms; }
+	.lema li:nth-child(2) { animation-delay: 300ms; }
+	.lema li:nth-child(3) { animation-delay: 400ms; }
+	.lema::after { animation: aparecer 600ms 500ms cubic-bezier(0.2, 0, 0, 1) both; }
 }

@@ -1,0 +1,418 @@
+/* =========================================
+   Birome · hoja de estilos
+   Orden: fuente, base, contenedor, cabecera,
+   inicio, nosotros, servicios, trabajos,
+   contacto, pie, botón subir
+
+   Colores
+   texto   #1C1B22   títulos y texto principal
+   suave   #64626C   texto secundario
+   línea   #DEDAD0   separadores
+   papel   #F6F4EE   fondo
+   tinta   #2234B8   solo marca, links, botones e íconos
+   ========================================= */
+
+/* ---------- Fuente ---------- */
+
+@font-face {
+	font-family: "Ginka";
+	src: url("../fuentes/ginka-regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Ginka";
+	src: url("../fuentes/ginka-italic.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Ginka";
+	src: url("../fuentes/ginka-book.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+}
+
+/* ---------- Base ---------- */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scrollbar-gutter: stable;
+	scrollbar-color: #C9C5BA #F6F4EE;
+}
+
+body {
+	background-color: #F6F4EE;
+	color: #1C1B22;
+	font-family: "Ginka", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+::selection {
+	background-color: #2234B8;
+	color: #F6F4EE;
+}
+
+:focus-visible {
+	outline: 2px solid #2234B8;
+	outline-offset: 4px;
+}
+
+img {
+	display: block;
+}
+
+a {
+	color: #2234B8;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 4px;
+}
+
+h2 {
+	font-size: 48px;
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	margin-bottom: 48px;
+	text-wrap: balance;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+p {
+	text-wrap: pretty;
+}
+
+strong {
+	font-weight: 500;
+	color: #1C1B22;
+}
+
+main section {
+	padding: 96px 0;
+	border-top: 1px solid #DEDAD0;
+	scroll-margin-top: 80px;
+}
+
+.boton {
+	display: inline-block;
+	padding: 16px 28px;
+	background-color: #2234B8;
+	color: #F6F4EE;
+	border-radius: 999px;
+	font-weight: 500;
+	line-height: 1;
+	text-decoration: none;
+	user-select: none;
+}
+
+/* ---------- Contenedor ---------- */
+
+.contenedor {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 0 48px;
+}
+
+/* ---------- Cabecera ---------- */
+
+.cabecera {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 80px;
+	background-color: #F6F4EE;
+}
+
+.logo a {
+	display: block;
+	width: 124px;
+	height: 28px;
+	background: url("../img/logo.png") no-repeat;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+.menu {
+	display: flex;
+	gap: 32px;
+	list-style: none;
+}
+
+.menu a {
+	color: #64626C;
+	text-decoration: none;
+	user-select: none;
+}
+
+/* ---------- Inicio ---------- */
+
+.inicio {
+	border-top: none;
+	padding: 80px 0 96px;
+}
+
+.inicio h2 {
+	font-size: 88px;
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: -0.03em;
+	margin-bottom: 64px;
+}
+
+/* La única parte del sitio con título en dos colores */
+.inicio h2 em {
+	font-style: italic;
+	font-weight: 400;
+	color: #2234B8;
+}
+
+.inicio-pie {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.inicio-pie p {
+	width: 528px;
+	font-size: 20px;
+	color: #64626C;
+}
+
+/* ---------- Nosotros ---------- */
+
+.personas {
+	display: flex;
+	gap: 48px;
+}
+
+.persona {
+	width: 528px;
+}
+
+.persona h3 {
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+.persona .rol {
+	color: #2234B8;
+	margin-bottom: 16px;
+}
+
+.persona p {
+	font-size: 20px;
+	color: #64626C;
+	margin-bottom: 24px;
+}
+
+.enlace {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-weight: 500;
+}
+
+/* ---------- Servicios ---------- */
+
+.servicios-lista {
+	display: flex;
+	gap: 32px;
+}
+
+.servicios-lista article {
+	width: 252px;
+}
+
+.servicios-lista img {
+	margin-bottom: 20px;
+}
+
+.servicios-lista h3 {
+	margin-bottom: 8px;
+}
+
+.servicios-lista p {
+	color: #64626C;
+}
+
+/* ---------- Trabajos ---------- */
+
+.galeria {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 64px 24px;
+}
+
+.galeria figure {
+	width: 540px;
+}
+
+.galeria img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 8px;
+	margin-bottom: 20px;
+}
+
+.galeria h3 {
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 4px;
+}
+
+.galeria p {
+	color: #64626C;
+}
+
+/* ---------- Contacto ---------- */
+
+.contacto {
+	display: flex;
+	justify-content: space-between;
+}
+
+.contacto-texto {
+	width: 528px;
+}
+
+.contacto h2 {
+	margin-bottom: 24px;
+}
+
+.contacto-texto p {
+	font-size: 20px;
+	color: #64626C;
+	margin-bottom: 32px;
+}
+
+.contacto address {
+	font-style: normal;
+}
+
+.contacto address a {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 28px;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.formulario {
+	width: 504px;
+}
+
+.formulario label {
+	display: block;
+	font-weight: 500;
+}
+
+/* Los campos son renglones, como en una hoja */
+.formulario input,
+.formulario textarea {
+	display: block;
+	width: 100%;
+	margin-bottom: 32px;
+	padding: 8px 0;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #C9C5BA;
+	color: #1C1B22;
+	font-family: inherit;
+	font-size: 20px;
+	line-height: 1.6;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+	border-bottom-color: #2234B8;
+}
+
+.formulario textarea {
+	resize: none;
+}
+
+/* Autocompletado del navegador con los colores del sitio */
+.formulario input:-webkit-autofill {
+	-webkit-text-fill-color: #1C1B22;
+	-webkit-box-shadow: 0 0 0 40px #F6F4EE inset;
+}
+
+.formulario button {
+	padding: 16px 28px;
+	background-color: #2234B8;
+	border: none;
+	border-radius: 999px;
+	color: #F6F4EE;
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1;
+	cursor: pointer;
+	user-select: none;
+}
+
+/* ---------- Pie ---------- */
+
+.pie {
+	display: flex;
+	gap: 32px;
+	padding: 32px 0 48px;
+	border-top: 1px solid #DEDAD0;
+	color: #64626C;
+}
+
+/* ---------- Botón subir ---------- */
+
+.subir {
+	position: fixed;
+	right: 32px;
+	bottom: 32px;
+	padding: 12px 20px;
+	background-color: #1C1B22;
+	color: #F6F4EE;
+	border-radius: 999px;
+	line-height: 1;
+	text-decoration: none;
+	user-select: none;
+}
+
+/* ---------- Hover (solo con mouse) ---------- */
+
+@media (hover: hover) {
+	.menu a:hover {
+		color: #1C1B22;
+	}
+
+	.boton:hover,
+	.formulario button:hover {
+		background-color: #1C1B22;
+	}
+
+	.subir:hover {
+		background-color: #2234B8;
+	}
+
+	.contacto address a:hover {
+		text-decoration: underline;
+	}
+}

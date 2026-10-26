@@ -1,8 +1,8 @@
 /* =========================================
    Birome · hoja de estilos
    Orden: fuentes, colores, base, contenedor, cabecera,
-   inicio, nosotros, servicios, web, contenido,
-   contacto, pie, botón subir, hover, movimiento
+   inicio, nosotros, servicios, trabajos, contacto,
+   pie, botón subir, hover, movimiento
 
    Títulos en Ginka, texto en Inter.
    ========================================= */
@@ -37,6 +37,7 @@
 	--tinta: #1C2150;     /* texto */
 	--suave: #5A5F86;     /* texto secundario */
 	--rojo: #F72E14;
+	--rosa: #FFD6CC;      /* fondo del grupo de identidad */
 	--verde: #D7EE44;
 	--celeste: #C2DAFF;
 	--crema: #FBF1E8;
@@ -107,7 +108,8 @@ ul {
 }
 
 h2,
-h3 {
+h3,
+h4 {
 	font-family: "Ginka", Georgia, serif;
 	font-weight: 400;
 	line-height: 1.1;
@@ -124,13 +126,8 @@ p {
 	text-wrap: pretty;
 }
 
-strong {
-	font-weight: 600;
-	color: var(--azul);
-}
-
 main section {
-	padding: 96px 48px;
+	padding: 64px 48px;
 	scroll-margin-top: 88px;
 }
 
@@ -138,7 +135,7 @@ main section {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	margin-bottom: 56px;
+	margin-bottom: 40px;
 }
 
 .encabezado p {
@@ -149,12 +146,11 @@ main section {
 
 .boton {
 	display: inline-block;
-	padding: 20px 36px;
-	background-color: var(--verde);
-	color: var(--azul);
+	padding: 16px 28px;
+	background-color: var(--azul);
+	color: var(--crema);
 	border-radius: 999px;
-	font-family: "Ginka", Georgia, serif;
-	font-size: 24px;
+	font-weight: 500;
 	line-height: 1;
 	text-decoration: none;
 	user-select: none;
@@ -237,7 +233,7 @@ main section {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-top: 48px;
+	padding-top: 32px;
 }
 
 .inicio-texto {
@@ -263,6 +259,15 @@ main section {
 	color: var(--suave);
 	margin-bottom: 40px;
 	text-wrap: balance;
+}
+
+.inicio .boton {
+	padding: 20px 32px;
+	background-color: var(--verde);
+	color: var(--azul);
+	font-family: "Ginka", Georgia, serif;
+	font-size: 24px;
+	font-weight: 400;
 }
 
 .lema {
@@ -321,175 +326,195 @@ main section {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	padding: 64px;
-	margin-bottom: 64px;
+	padding: 56px 64px;
+	margin-bottom: 40px;
 	background-color: var(--azul);
 	border-radius: 32px;
 }
 
 .presentacion h2 {
-	width: 384px;
-	font-size: 64px;
 	color: var(--crema);
 }
 
-.presentacion p {
-	width: 528px;
-	font-size: 24px;
-	line-height: 1.5;
+.presentacion-texto {
+	width: 560px;
+}
+
+.presentacion-texto p {
+	font-size: 20px;
 	color: var(--crema);
 }
 
-.personas {
+.presentacion-texto p + p {
+	margin-top: 16px;
+}
+
+.equipo {
 	display: flex;
+	align-items: baseline;
 	gap: 48px;
+	padding: 0 64px;
 }
 
-.persona {
-	width: 528px;
-	padding-top: 32px;
-	border-top: 1px solid var(--azul);
+.equipo h3 {
+	width: 224px;
+	font-size: 28px;
 }
 
-.persona h3 {
-	font-size: 40px;
-}
-
-.persona .rol {
-	margin: 8px 0 20px;
-	font-weight: 500;
+.equipo ul {
+	display: flex;
+	gap: 64px;
 	color: var(--suave);
 }
 
-.persona p {
-	font-size: 20px;
-	margin-bottom: 24px;
+.equipo strong {
+	display: block;
+	font-family: "Ginka", Georgia, serif;
+	font-size: 24px;
+	font-weight: 400;
+	color: var(--azul);
 }
 
 /* ---------- Servicios ---------- */
 
 .servicios-lista {
-	border-bottom: 1px solid var(--azul);
-}
-
-.servicio {
-	display: flex;
-	align-items: center;
-	gap: 24px;
-	padding: 36px 0;
-	border-top: 1px solid var(--azul);
-}
-
-/* Cada servicio lleva un punto de la paleta, como la bolita del logo */
-.servicio::before {
-	content: "";
-	flex-shrink: 0;
-	width: 28px;
-	height: 28px;
-	border-radius: 50%;
-}
-
-.servicio-verde::before { background-color: var(--verde); }
-.servicio-rojo::before { background-color: var(--rojo); }
-.servicio-azul::before { background-color: var(--azul); }
-.servicio-celeste::before { background-color: var(--celeste); }
-
-.servicio h3 {
-	flex-grow: 1;
-	font-size: 48px;
-}
-
-.servicio ul {
-	width: 312px;
-	line-height: 2;
-}
-
-/* ---------- Web ---------- */
-
-.galeria {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 64px 24px;
-}
-
-.galeria figure {
-	width: 352px;
-}
-
-.trabajo > img {
-	width: 100%;
-	aspect-ratio: 4 / 3;
-	object-fit: cover;
-	border-radius: 16px;
-	outline: 1px solid rgba(0, 0, 0, 0.1);
-	outline-offset: -1px;
-}
-
-.galeria h3 {
-	margin-top: 24px;
-	font-size: 32px;
-}
-
-.galeria .tipo {
-	margin: 4px 0 12px;
-	font-weight: 500;
-	color: var(--suave);
-}
-
-.galeria p {
-	margin-bottom: 16px;
-}
-
-/* ---------- Contenido ---------- */
-
-.pieza > img {
-	width: 100%;
-	aspect-ratio: 1 / 1;
-	object-fit: cover;
-	border-radius: 50%;
-	outline: 1px solid rgba(0, 0, 0, 0.1);
-	outline-offset: -1px;
-}
-
-.destacado {
-	margin-top: 96px;
-	padding-top: 48px;
-	border-top: 1px solid var(--azul);
-}
-
-.destacado-texto {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	margin-bottom: 40px;
-}
-
-.destacado h3 {
-	font-size: 48px;
-}
-
-.destacado-texto div,
-.destacado-texto p {
-	width: 528px;
-}
-
-.destacado-texto p {
-	font-size: 20px;
-	margin-bottom: 16px;
-}
-
-.tira {
 	display: flex;
 	gap: 32px;
 }
 
-.tira img {
+/* Cada servicio lleva el color de su grupo en Trabajos */
+.servicio {
+	display: flex;
+	flex-direction: column;
 	width: 252px;
-	aspect-ratio: 3 / 4;
+	padding: 28px;
+	border-radius: 24px;
+	color: var(--tinta);
+	text-decoration: none;
+	user-select: none;
+}
+
+.servicio-verde { background-color: var(--verde); }
+.servicio-rojo { background-color: var(--rosa); }
+.servicio-celeste { background-color: var(--celeste); }
+
+.servicio-azul {
+	background-color: var(--azul);
+	color: var(--crema);
+}
+
+.servicio h3 {
+	min-height: 56px;
+	margin-bottom: 16px;
+	font-size: 24px;
+}
+
+.servicio-azul h3 {
+	color: var(--crema);
+}
+
+.servicio ul {
+	flex-grow: 1;
+	margin-bottom: 24px;
+}
+
+.servicio-ver {
+	font-weight: 600;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 4px;
+}
+
+/* ---------- Trabajos ---------- */
+
+.grupo {
+	padding: 48px;
+	margin-bottom: 24px;
+	border-radius: 32px;
+	scroll-margin-top: 104px;
+}
+
+.grupo:last-child {
+	margin-bottom: 0;
+}
+
+.grupo-verde { background-color: var(--verde); }
+.grupo-rojo { background-color: var(--rosa); }
+.grupo-celeste { background-color: var(--celeste); }
+
+.grupo-azul {
+	background-color: var(--azul);
+	color: var(--crema);
+}
+
+.grupo h3 {
+	margin-bottom: 32px;
+	font-size: 40px;
+}
+
+.grupo-azul h3,
+.grupo-azul h4 {
+	color: var(--crema);
+}
+
+.grilla {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px 24px;
+}
+
+.grilla figure {
+	width: 320px;
+}
+
+.grilla figure > img {
+	width: 100%;
 	object-fit: cover;
 	border-radius: 16px;
 	outline: 1px solid rgba(0, 0, 0, 0.1);
 	outline-offset: -1px;
+}
+
+.pieza > img {
+	aspect-ratio: 4 / 5;
+}
+
+.sitio > img {
+	aspect-ratio: 4 / 3;
+}
+
+.grilla h4 {
+	margin: 16px 0 4px;
+	font-size: 24px;
+}
+
+.grilla figcaption p {
+	margin-bottom: 8px;
+}
+
+/* La tarjeta que lleva al formulario */
+.pedido {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 320px;
+	padding: 32px;
+	background-color: var(--crema);
+	border-radius: 16px;
+}
+
+.pedido p {
+	font-family: "Ginka", Georgia, serif;
+	font-size: 28px;
+	line-height: 1.15;
+	color: var(--azul);
+	text-wrap: balance;
+}
+
+.grupo-azul .pedido .boton {
+	background-color: var(--verde);
+	color: var(--azul);
 }
 
 /* ---------- Contacto ---------- */
@@ -497,46 +522,68 @@ main section {
 .contacto {
 	display: flex;
 	justify-content: space-between;
-	margin: 0 48px 96px;
-	padding: 64px;
+	margin: 0 48px 64px;
+	padding: 56px 64px;
 	background-color: var(--celeste);
 	border-radius: 32px;
 }
 
 .contacto-texto {
-	width: 432px;
+	width: 400px;
 }
 
 .contacto h2 {
-	margin-bottom: 24px;
+	margin-bottom: 16px;
 }
 
 .contacto-texto p {
 	font-size: 20px;
-	margin-bottom: 32px;
+	margin-bottom: 24px;
 }
 
 .contacto address {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 32px;
 	font-style: normal;
-	line-height: 2;
+}
+
+.contacto address a,
+.contacto address span {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	font-weight: 500;
+}
+
+.mapa {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 3 / 2;
+	border: none;
+	border-radius: 16px;
 }
 
 .formulario {
-	width: 480px;
+	width: 512px;
 }
 
-.formulario label {
+.formulario label,
+.formulario legend {
 	display: block;
 	margin-bottom: 8px;
 	font-weight: 500;
 	color: var(--azul);
 }
 
-.formulario input,
+.formulario input[type="text"],
+.formulario input[type="email"],
 .formulario textarea {
 	display: block;
 	width: 100%;
-	margin-bottom: 24px;
+	margin-bottom: 20px;
 	padding: 16px;
 	background-color: var(--crema);
 	border: none;
@@ -563,8 +610,52 @@ main section {
 	-webkit-box-shadow: 0 0 0 40px #FBF1E8 inset;
 }
 
+.formulario fieldset {
+	margin-bottom: 20px;
+	border: none;
+}
+
+.opciones {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+/* El círculo nativo se oculta, pero sigue funcionando con teclado */
+.opciones input {
+	position: absolute;
+	opacity: 0;
+	width: 1px;
+	height: 1px;
+}
+
+.formulario .opciones label {
+	margin: 0;
+	padding: 12px 16px;
+	background-color: var(--crema);
+	border-radius: 999px;
+	color: var(--tinta);
+	font-weight: 500;
+	line-height: 1;
+	cursor: pointer;
+	user-select: none;
+	transition-property: background-color, color;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
+}
+
+.opciones input:checked + label {
+	background-color: var(--azul);
+	color: var(--crema);
+}
+
+.opciones input:focus-visible + label {
+	outline: 2px solid var(--azul);
+	outline-offset: 2px;
+}
+
 .formulario button {
-	padding: 20px 36px;
+	padding: 20px 32px;
 	background-color: var(--azul);
 	border: none;
 	border-radius: 999px;
@@ -630,8 +721,25 @@ main section {
 	}
 
 	.boton:hover {
+		background-color: var(--rojo);
+		color: var(--crema);
+	}
+
+	.inicio .boton:hover {
 		background-color: var(--azul);
 		color: var(--crema);
+	}
+
+	.servicio:hover .servicio-ver {
+		text-decoration-thickness: 2px;
+	}
+
+	.opciones label:hover {
+		background-color: #FFFFFF;
+	}
+
+	.opciones input:checked + label:hover {
+		background-color: var(--azul);
 	}
 
 	.formulario button:hover {
